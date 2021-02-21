@@ -1,0 +1,22 @@
+﻿@page "/Investors/InvestorDetails/{Id}"
+
+<h3>Details</h3>
+<p>Name of investor: @_name</p>
+
+<h4><a href="/Investors/Investors">See all investors</a></h4>
+@code {
+
+  [Parameter]
+  public string Id { get; set; }
+
+  string _name;
+
+  protected override void OnInitialized() =>
+    _name = Id switch
+    {
+      "jim" => "Jim",
+      "john" => "John",
+      _ => "Unknown"
+      };
+
+}
